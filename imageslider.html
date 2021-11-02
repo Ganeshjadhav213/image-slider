@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>imageSlider</title>
+    <style>
+        html {
+            background-color: grey;
+            height: 100%;
+        }
+
+        #container {
+            height: 500px;
+            width: 500px;
+            margin: 100px auto;
+            text-align: center;
+            border: 5px solid black;
+
+        }
+
+        #images {
+            height: 500px;
+            width: 500px;
+        }
+
+        button {
+            margin: 0 auto;
+            height: 50px;
+            width: 150px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <img src="1.png" alt="" id="images">
+        <button id="previous">previous</button>
+        <button id="next">next</button>
+    </div>
+    <script>
+        let prev = document.getElementById('previous');
+        let next = document.getElementById('next');
+        var arr = ["1.png", "2.png", "3.png"];
+        let i = 0;
+
+
+        next.addEventListener('click',function(){
+            i++;
+            if(i> arr.length-1){
+                i=0;
+            }
+            document.getElementById('images').src = arr[i];
+        })
+ 
+        prev.addEventListener('click', function () {
+            i--;
+            if(i<0){
+                i=arr.length-1;
+            }
+            document.getElementById('images').src = arr[i];
+
+        })
+
+    </script>
+</body>
+
+</html>
